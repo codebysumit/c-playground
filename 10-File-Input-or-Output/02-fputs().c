@@ -29,6 +29,20 @@ Functions Used:
 - void perror(const char* msg)
 - void exit(int status)
 
+-------------------------------------------------------------------------------
+📌 fputs() — Return Value:
+--------------------------
+Return Type: int
+
+- On **success**, `fputs()` returns **a non-negative value** (usually `0`).
+- On **error**, it returns `EOF` (typically `-1`) and sets `errno` to a non-zero value.
+- This allows error handling using `if (fputs(...) == EOF)` condition.
+
+Example usage for error handling:
+    if (fputs("text", stream) == EOF) {
+        perror("fputs error");
+    }
+
 ===============================================================================
 */
 
