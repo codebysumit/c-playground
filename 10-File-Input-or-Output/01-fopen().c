@@ -7,7 +7,8 @@ or appending, in both text and binary modes.
 
 ------------------------------------------------------------------------------
 SYNTAX:
-    FILE *fopen(const char *filename, const char *mode);
+    FILE *ptr;
+    ptr = fopen(const char *filename, const char *mode);
 ------------------------------------------------------------------------------
 
 This program demonstrates the use of all common file opening modes in C:
