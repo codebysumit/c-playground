@@ -3,7 +3,7 @@
 int linear_search(int n, int arr[], int key) {
     
     // Iterate over the array in order to
-    // find the key key
+    // find the key
     for (int i = 0; i < n; i++)
         if (arr[i] == key)
             return i;
