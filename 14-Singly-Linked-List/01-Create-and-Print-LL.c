@@ -31,6 +31,7 @@ void printLL(Node* head) {
         current = current->next;
     }
     printf("NULL\n");
+    free(current);
 }
 
 /* Main function */
