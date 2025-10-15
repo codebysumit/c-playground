@@ -10,7 +10,7 @@ typedef struct Node {
 /* Function declarations */
 Node* createNode(int data);
 void printLL(Node* head);
-void insertAtFirst(Node** head, int data);
+void insertAtEnd(Node** head, int data);
 
 /* Function to create a new node */
 Node* createNode(int data) {
