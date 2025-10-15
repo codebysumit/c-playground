@@ -10,6 +10,7 @@ typedef struct Node {
 /* Function declarations */
 Node* createNode(int data);
 void printLL(Node* head);
+void insertAtHead(Node** head, int data);
 void insertAtEnd(Node** head, int data, int position);
 
 /* Function to create a new node */
@@ -32,34 +33,60 @@ void printLL(Node* head) {
         current = current->next;
     }
     printf("NULL\n");
+    free(current);
+}
+
+/* Function to insert a new node at head */
+void insertAtHead(Node** head, int data){
+    Node* newNode = createNode(data);
+    newNode->next = *head;
+    *head = newNode;
 }
 
 /* Function to insert a new node at given position */
-void insertAtEnd(Node** head, int data, int position) {
-    if(*head == NULL) {
-        *head = createNode(data);
+void insertAtPosition(Node** head, int data, int position) {
+    if(position == 0 || *head == NULL) {
+        insertAtHead(&*head, data);
         return;
     }
     
-    Node* currentNode = *head;
-    while(currentNode->next != NULL) {
-        currentNode = currentNode->next;
+    Node* newNode = createNode(data);
+    Node* currNode = *head;
+    int counter = 1;
+    while(currNode != NULL && counter < position) {
+        currNode = currNode->next;
+        counter += 1;
     }
     
-    Node* newNode = createNode(data);
-    currentNode->next = newNode;
+    if (currNode == NULL) {
+        printf("Position out of range\n");
+        free(newNode);
+        return;
+    }
+    
+    newNode->next = currNode->next;
+    currNode->next = newNode;
 }
 
 /* Main function */
 int main() {
     Node* head = NULL;
 
-    insertAtEnd(&head, 10);
-    insertAtEnd(&head, 20);
-    insertAtEnd(&head, 30);
+    Node* node1 = createNode(10);
+    Node* node2 = createNode(20);
+    Node* node3 = createNode(30);
+    Node* node4 = createNode(40);
 
-    /* Print linked list */
+    head = node1;
+    head->next = node2;
+    head->next->next = node3;
+    head->next->next->next = node4;
+
+    insertAtPosition(&head, 80, 1);
     printLL(head);
-
+    
+    insertAtPosition(&head, 50, 0);
+    printLL(head);
+ 
     return 0;
 }
