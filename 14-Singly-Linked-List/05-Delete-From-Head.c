@@ -32,7 +32,6 @@ void printLL(Node* head) {
         current = current->next;
     }
     printf("NULL\n");
-    free(current);
 }
 
 /* Function to delete a node at head */
@@ -42,7 +41,8 @@ void deleteAtHead(Node** head) {
         return;
     }
     Node* temp = *head;
-    *head = head->next;
+    *head = temp->next;
+    // *head = (*head)->next;
     free(temp);
 }
 
