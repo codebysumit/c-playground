@@ -33,7 +33,6 @@ void printLL(Node* head) {
         current = current->next;
     }
     printf("NULL\n");
-    free(current);
 }
 
 /* Function to insert a new node at head */
