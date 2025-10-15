@@ -11,7 +11,7 @@ typedef struct Node {
 Node* createNode(int data);
 void printLL(Node* head);
 void insertAtHead(Node** head, int data);
-void insertAtEnd(Node** head, int data, int position);
+void insertAtPosition(Node** head, int data, int position)
 
 /* Function to create a new node */
 Node* createNode(int data) {
