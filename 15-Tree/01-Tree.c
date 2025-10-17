@@ -113,3 +113,10 @@ int main() {
 
     return 0;
 }
+
+/*
+Output:
+Pre-Order Traversal: 1 2 4 5 3 6 7 
+In-Order Traversal: 4 2 5 1 6 3 7 
+Post-Order Traversal: 4 5 2 6 7 3 1
+*/
